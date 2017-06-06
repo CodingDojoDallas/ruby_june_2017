@@ -1,8 +1,8 @@
 class Human
   attr_accessor :name, :strength, :intelligence, :stealth, :health
 
-  def initialize(name)
-    @name = name
+  def initialize()
+    # @name = name
     @strength, @intelligence, @stealth, @health = 3, 3, 3, 100
   end
 
@@ -22,11 +22,11 @@ class Human
 
 end
 
-bri = Human.new("bri")
-pats = Human.new("pats")
-
-bri.display_health
-pats.display_health
-
-bri.attack(pats)
-pats.display_health
+# bri = Human.new("bri")
+# pats = Human.new("pats")
+#
+# bri.display_health
+# pats.display_health
+#
+# bri.attack(pats)
+# pats.display_health
