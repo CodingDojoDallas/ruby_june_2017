@@ -1,0 +1,98 @@
+1. Create 5 users.
+------------------------------
+5.times {User.create(first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, email:Faker::Internet.email)}
+
+
+2. Create 5 blogs.
+------------------------------
+5.times {Blog.create(name:Faker::Superhero.name, desc:Faker::Superhero.descriptor)}
+
+
+3. Have the first 3 blogs be owned by the first user.
+------------------------------
+1.upto(3) {|i| Owner.create(user:User.first, blog:Blog.find(i))}
+
+
+4. Have the 4th blog you create be owned by the second user.
+------------------------------
+Owner.create(user:User.second, blog:Blog.find(4))
+
+
+5. Have the 5th blog you create be owned by the last user.
+------------------------------
+Owner.create(user:User.last, blog:Blog.find(5))
+
+
+6. Have the third user own all of the blogs that were created.
+------------------------------
+1.upto(Blog.all.length) {|i| Owner.create(user:User.third, blog:Blog.find(i))}
+
+
+7. Have the first user create 3 posts for the blog with an id of 2. Remember that you shouldn't do Post.create(user: User.first, blog_id: 2) but more like Post.create(user: User.first, blog: Blog.find(2)). Again, you should never reference the foreign key in Rails.
+------------------------------
+3.times {Post.create(user:User.first, blog:Blog.find(2), title:Faker::StarWars.planet, content:Faker::StarWars.quote)}
+
+
+8. Have the second user create 5 posts for the last Blog.
+------------------------------
+5.times {Post.create(user:User.second, blog:Blog.last, title:Faker::StarWars.planet, content:Faker::StarWars.quote)}
+
+9. Have the 3rd user create several posts for different blogs.
+------------------------------
+1.upto(5) {|i| Post.create(user:User.third, blog:Blog.find(i), title:Faker::StarWars.planet, content:Faker::StarWars.quote)}
+
+
+10. Have the 3rd user create 2 messages for the first post created and 3 messages for the second post created
+------------------------------
+2.times {Message.create(post:Post.first, user:User.third, author:Faker::Superhero.name, message:Faker::StarWars.quote)}
+3.times {Message.create(post:Post.second, user:User.third, author:Faker::Superhero.name, message:Faker::StarWars.quote)}
+
+
+11. Have the 4th user create 3 messages for the last post you created.
+------------------------------
+3.times {Message.create(post:Post.last, user:User.fourth, author:Faker::Superhero.name, message:Faker::StarWars.quote)}
+
+
+12. Change the owner of the 2nd post to the last user.
+------------------------------
+Post.update(2, user:User.last)
+
+
+13. Change the 2nd post's content to be something else.
+------------------------------
+Post.update(2, content:"Something else...")
+
+
+14. Retrieve all blogs owned by the 3rd user (make this work by simply doing: User.find(3).blogs).
+------------------------------
+User.find(3).blogs
+
+
+15. Retrieve all posts that were created by the 3rd user.
+------------------------------
+User.find(3).posts
+
+
+16. Retrieve all messages left by the 3rd user.
+------------------------------
+User.find(3).messages
+
+
+17. Retrieve all posts associated with the blog id 5 as well as who left these posts.
+------------------------------
+Blog.find(5).posts.joins(:user).select("users.id, users.first_name")
+
+
+18. Retrieve all messages associated with the blog id 5 along with all the user information of those who left the messages
+------------------------------
+Blog.find(5).posts.joins(:messages).joins(:user).select("users.id, users.first_name")
+
+
+19. Grab all user information of those that own the first blog (make this work by allowing Blog.first.owners to work).
+------------------------------
+Blog.first.owners.joins(:user).select("*")
+
+
+20. Change it so that the first blog is no longer owned by the first user.
+------------------------------
+Owner.find_by(blog:Blog.first).update(user:User.third)
