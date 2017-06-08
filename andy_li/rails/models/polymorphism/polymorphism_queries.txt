@@ -1,0 +1,27 @@
+1.
+Work on the tasks above and submit a single txt file that contains only the Ruby commands you ran to accomplish the tasks above.
+
+vagrant@vagrant-ubuntu-trusty-64:/vagrant/ruby_june_2017/andy_li/rails/models/polymorphism$ rails g model Comment commentable:references{polymorphic} comment
+
+
+Added following to User, Blog, Post, Message models:
+has_many :comments, as: :commentable
+
+$ rails c
+
+Add Comment
+------------------------------
+> Comment.create(commentable:User.first, comment:"Hello world!")
+> Comment.create(commentable:Blog.first, comment:"Hello world!")
+> Comment.create(commentable:Post.first, comment:"Hello world!")
+> Comment.create(commentable:Message.first, comment:"Hello world!")
+
+Update Comment
+------------------------------
+> Comment.second.update(comment:"Hi!")
+
+Delete Comment
+------------------------------
+> Blog.first.comments.first.delete
+
+
