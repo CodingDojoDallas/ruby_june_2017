@@ -1,0 +1,10 @@
+<div>
+  <h3>Edit user: </h3>
+  <form action="/users/1" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <!-- <input type="hidden" name="_method" value="put"> -->
+
+    <label>Name: <input type="text" name="name" placeholder="<%= @user.name %>"></label>
+    <input type="submit" value="Update">
+  </form>
+</div>
