@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  get 'users/index'
+  get 'users/new' => 'users#new'
 
-  get 'users/new' => 'users#create'
+  post 'users' => 'users#create'
 
-  post 'users' => 'users#create_user'
+  get 'users/total' => 'users#total'
+  
+  get 'users/:id' => 'users#show'
 
-  get 'users/show/:id' => 'users#show'
+  get 'users/:id/edit' => 'users#edit'
 
-  get 'users/:id/update' => 'users#update'
+  patch 'users/:id' => 'users#update'
 
-  get 'users/:id/updated' => 'users#updated'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
