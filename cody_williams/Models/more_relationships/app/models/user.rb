@@ -7,5 +7,5 @@ class User < ApplicationRecord
 
 	#self join
 	has_many :friendships
-	has_many :friends, through: :friendships, source: :user
+	has_many :friends, through: :friendships, source: :friend
 end
