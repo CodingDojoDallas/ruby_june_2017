@@ -1,0 +1,14 @@
+<h1>Users#index</h1>
+<a href="/users/new">Create new user</a>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>created at</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.created_at %></td>
+  </tr>
+  <% end %>
+</table>
