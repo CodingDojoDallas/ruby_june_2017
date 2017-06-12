@@ -1,0 +1,62 @@
+<div class="container">
+  <p>Your Gold: <span class="gold_ttl"><%= @gold_ttl %></span></p>
+  <div class="bldg">
+    <h3>Farm</h3>
+    <p>(earns 10 - 20 gold)</p>
+    <form action="/process" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="bldg" value="farm">
+      <input type="submit" value="Find Gold!">
+    </form>
+  </div>
+
+  <div class="bldg">
+    <h3>Cave</h3>
+    <p>(earns 5 - 10 gold)</p>
+    <form action="/process" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="bldg" value="cave">
+      <input type="submit" value="Find Gold!">
+    </form>
+  </div>
+
+  <div class="bldg">
+    <h3>House</h3>
+    <p>(earns 2 - 5 gold)</p>
+    <form action="/process" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="bldg" value="house">
+      <input type="submit" value="Find Gold!">
+    </form>
+  </div>
+
+  <div class="bldg">
+    <h3>Casino</h3>
+    <p>(earns/takes 0 - 50 gold)</p>
+    <form action="/process" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="bldg" value="casino">
+      <input type="submit" value="Find Gold!">
+    </form>
+  </div>
+
+  <h3>Activities</h3>
+  <div class="activities">
+
+    <% @msgs.each do |msg| %>
+      <% if msg.include?("Lost") %>
+        <p class="red"><%= msg %></p>
+      <% else %>
+        <p class="green"><%= msg %></p>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <form action="/reset" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Reset">
+  </form>
+
+
+</div>
