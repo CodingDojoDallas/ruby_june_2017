@@ -1,0 +1,8 @@
+<div>
+  <h3>Please create a new user: </h3>
+  <form action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Name: <input type="text" name="name" placeholder="Name"></label>
+    <input type="submit" value="Create">
+  </form>
+</div>

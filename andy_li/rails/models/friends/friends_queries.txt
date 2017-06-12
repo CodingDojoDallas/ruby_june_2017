@@ -13,3 +13,4 @@ User.first.friends
 Find out how you can retrieve all users who are NOT a friend with the first User.
 ------------------------------
 Friendship.where.not(user:User.first).joins(:user).select("*")
+User.where.not(id: User.first.friend_ids)

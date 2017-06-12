@@ -1,0 +1,16 @@
+<div class="">
+  <div class="">
+    <% if flash[:msg] %>
+      <p><%= flash[:msg] %></p>
+    <% end %>
+  </div>
+
+  <div class="">
+    <h3>Submitted Info:</h3>
+    <p>Name: <%= session[:name] %></p>
+    <p>Dojo Location: <%= session[:loc] %></p>
+    <p>Favorite Language: <%= session[:lang] %></p>
+    <p>Comment: <%= session[:comment] %></p>
+    <button type="button"><a href="/">Go Home</a></button>
+  </div>
+</div>

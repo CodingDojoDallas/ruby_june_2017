@@ -21,8 +21,10 @@ https://codingdojo-dallas.slack.com/files/katemoc/F427ZQZPY/github_workflow_v4.p
 NOTE: If you don't get in at least one pull request daily, then *_ya ain't serious_*.
 
 ## Videos
-
-Coming soon...
+[Rails - Intro to Models](https://www.youtube.com/watch?v=5H4maRk7biA "Rails - Intro to Models") <br>
+[Rails - Many-To-Many, Self Joins, Polymorphism, & Advanced Queries](https://www.youtube.com/watch?v=MW4Czgj33Uc "Rails - Many-To-Many, Self Joins, Polymorphism, & Advanced Queries") <br>
+[Rails - Intro to Controllers & Views](https://www.youtube.com/watch?v=lYMadjldXpc "Intro to Controllers & Views") <br>
+[Rails - Student Dashboard](https://www.youtube.com/watch?v=fUayjXir1Nc "Student Dashboard") <br>
 
 ## Resources
 
