@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>New Dojo</h2>
+  <form action="/dojos" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="">
+      <label>Branch: <input type="text" name="dojo[branch]" placeholder="Branch"></label>
+    </div>
+    <div class="">
+      <label>Street: <input type="text" name="dojo[street]" placeholder="Street"></label>
+    </div>
+    <div class="">
+      <label>City: <input type="text" name="dojo[city]" placeholder="City"></label>
+    </div>
+    <div class="">
+      <label>State: <input type="text" name="dojo[state]" placeholder="State"></label>
+    </div>
+    <input type="submit" value="Create">
+  </form>
+
+  <a href="/dojos">Go Back</a>
+
+  <div class="errors">
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+      <% end%>
+    <% end %>
+  </div>
+
+</div>
