@@ -1,0 +1,40 @@
+<div>
+	<form action="/dojos" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<div>
+			<label>Branch</label>
+			<input type="text" name="dojo[branch]">
+		</div>
+		<div>
+			<label>Street</label>
+			<input type="text" name="dojo[street]">
+		</div>
+		<div>
+			<label>City</label>
+			<input type="text" name="dojo[city]">
+		</div>
+		<div>
+			<label>State</label>
+			<input type="text" name="dojo[state]">
+		</div>
+		<input type="submit" value="Create Dojo">
+	</form>
+	<div>
+		<% if flash[:dojo_errors] %>
+			<% flash[:dojo_errors].each do |error| %>
+				<p class="error"><%= error %></p>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
