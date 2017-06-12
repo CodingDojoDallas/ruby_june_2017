@@ -1,4 +1,5 @@
 <div>
+	<a href="/dojos/<%= @dojo.id %>/edit">Edit Dojo</a>
 	<h1><%= @dojo.branch %> Dojo</h1>
 	<h3>Address: <%= @dojo.street %></h3>
 	<h3>City: <%= @dojo.city %> State: <%= @dojo.state %></h3>
@@ -18,7 +19,10 @@
 				<tr>
 					<td><%= student.name %></td>
 					<td><%= student.email %></td>
-					<td><a href="/students/<%= student.id %>">Show</a></td>
+					<td>
+						<a href="/students/<%= student.id %>">Show</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="/students/<%= student.id %>" data-method="delete">Delete</a>
+					</td>
 				</tr>
 			<% end %>
 		</table>
