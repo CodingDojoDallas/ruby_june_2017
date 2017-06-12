@@ -1,0 +1,36 @@
+<div class="">
+  <form action="/surveys" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div>
+      <label>Your Name: <input type="text" name="name" placeholder="Name"></label>
+    </div>
+    <div>
+      <label>Dojo Location: <select name="loc">
+          <option>Chicago</option>
+          <option selected>Dallas</option>
+          <option>Los Angeles</option>
+          <option>Seattle</option>
+          <option>Silicon Valley</option>
+          <option>Tulsa</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>Favorite Language: <select name="lang">
+          <option>HTML</option>
+          <option>CSS</option>
+          <option>JavaScript</option>
+          <option>Python</option>
+          <option selected>Ruby</option>
+        </select>
+      </label>
+    </div>
+
+    <label>Comment (optional):</label>
+    <div class="">
+      <textarea name="comment" rows="3" cols="30" placeholder="Comment"></textarea>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
