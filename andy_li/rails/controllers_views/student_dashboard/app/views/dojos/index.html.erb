@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Listing <%= @dojos.length %> Dojos</h2>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>Coding Dojo Branch</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @dojos.each do |dojo| %>
+      <tr>
+        <td><%= dojo.branch %></td>
+        <td><%= dojo.street %></td>
+        <td><%= dojo.city %></td>
+        <td><%= dojo.state %></td>
+        <td><a href="/dojos/<%= dojo.id %>">Show</a> |
+          <a href="/dojos/<%= dojo.id %>/edit">Edit</a> |
+          <a href="/dojos/<%= dojo.id %>" data-method="delete">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+
+  <a href="/dojos/new">New Dojo</a>
+
+  <div class="errors">
+    <% if flash[:success] %>
+      <p><%= flash[:success] %></p>
+    <% end %>
+  </div>
+
+</div>
