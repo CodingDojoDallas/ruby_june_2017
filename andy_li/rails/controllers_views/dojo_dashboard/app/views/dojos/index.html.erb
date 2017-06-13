@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Listing <%= @dojos.length %> Dojos</h2>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>Coding Dojo Branch</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+
+      <% @dojos.each do |dojo| %>
+      <tr>
+        <td><%= dojo.branch %></td>
+        <td><%= dojo.street %></td>
+        <td><%= dojo.city %></td>
+        <td><%= dojo.state %></td>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+
+
+
+</div>

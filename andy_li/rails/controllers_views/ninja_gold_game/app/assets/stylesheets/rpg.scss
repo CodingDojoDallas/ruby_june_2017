@@ -1,0 +1,31 @@
+// Place all the styles related to the Rpg controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gold_ttl {
+  font-weight: bold;
+}
+
+.bldg {
+  display: inline-block;
+  width: 20%;
+  padding: 20px;
+  border: 1px solid black;
+  margin: 20px;
+  text-align: center;
+}
+
+.activities {
+  padding: 20px;
+  border: 1px solid black;
+  overflow: auto;
+  height: 300px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
