@@ -1,0 +1,51 @@
+<div>Your Gold: <%= session[:gold] %> </div>
+
+<div class="farm">
+	<h6>Farm</h6>
+	<p>earns 10-20 gold</p>
+	<form action="/process" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="place" value='farm'>
+		<input type="submit" value="Find Gold!">
+	</form>
+</div>
+
+<div class="cave">
+	<h6>Cave</h6>
+	<p>earns 5-10 gold</p>
+	<form action="/process" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="place" value='cave'>
+		<input type="submit" value="Find Gold!">
+	</form>
+</div>
+
+<div class="house">
+	<h6>House</h6>
+	<p>earns 2-5 gold</p>
+	<form action="/process" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="place" value='house'>
+		<input type="submit" value="Find Gold!">
+	</form>
+</div>
+
+<div class="casino">
+	<h6>Casino</h6>
+	<p>earns/takes 0-50 gold</p>
+	<form action="/process" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="place" value='casino'>
+		<input type="submit" value="Find Gold!">
+	</form>
+</div>
+
+<div>
+	Activities:
+	<div>
+		<!-- loop through activities -->
+		<% session[:activities].each do |activity| %>
+			<%= activity %>
+		<% end %>
+	</div>
+</div>
