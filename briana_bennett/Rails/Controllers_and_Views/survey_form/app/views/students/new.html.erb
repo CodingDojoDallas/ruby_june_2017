@@ -1,0 +1,21 @@
+<form action='/students' method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<label>Name</label>
+	<input type="text" name="user[name]">
+	<label>Dojo Location</label>
+	<select name="user[dojo_location]">
+	  <option value="Dallas">Dallas</option>
+	  <option value="Seattle">Seattle</option>
+	  <option value="Chicago">Chicago</option>
+	  <option value="Mountain View">Mountain View</option>
+	</select>
+	<label>Favorite Language</label>
+	<select name="user[fav_lang]">
+	  <option value="JavaScript">JavaScript</option>
+	  <option value="Python">Python</option>
+	  <option value="Ruby">Ruby</option>
+	</select>
+	Comments
+	<textarea name="user[comment]"></textarea>
+	<input type="submit" name="submit">
+</form>
