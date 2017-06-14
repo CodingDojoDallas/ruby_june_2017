@@ -1,0 +1,24 @@
+<h3>New Dojo</h3>
+
+<% if flash[:errors] %>
+	<ul>
+		<% flash[:errors].each do |error| %>
+			<li> <%= error %> </li>
+		<% end %>
+	</ul>
+<% end %>
+
+<form action="/dojos" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<label>branch</label>
+		<input type="text" name="dojo[branch]">
+	<label>street</label>
+		<input type="text" name="dojo[street]">
+	<label>city</label>
+		<input type="text" name="dojo[city]">
+	<label>state</label>
+		<input type="text" name="dojo[state]">
+	<input type="submit" value="create">	
+</form>
+
+<a href="/">Go back</a>
