@@ -1,0 +1,24 @@
+<h3>New Student</h3>
+
+<% if flash[:errors] %>
+	<ul>
+		<% flash[:errors].each do |error| %>
+			<li> <%= error %> </li>
+		<% end %>
+	</ul>
+<% end %>
+
+<form action="/dojos/<%= @dojo.id %>/students" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<label>first name</label>
+		<input type="text" name="student[first_name]">
+	<label>last name</label>
+		<input type="text" name="student[last_name]">
+	<label>email</label>
+		<input type="text" name="student[email]">
+	<label>dojo</label>
+		<input type="text" name="student[dojo_id]" value="<%= @dojo.id %>" readonly>
+	<input type="submit" value="create">	
+</form>
+
+<a href="/dojos/<%= @dojo.id %> ">Go back</a>
