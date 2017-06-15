@@ -17,6 +17,7 @@ class DojosController < ApplicationController
 
 	def show
 		current_dojo
+		@students = Student.where(dojo_id: current_dojo.id)
 	end
 
 	def edit
