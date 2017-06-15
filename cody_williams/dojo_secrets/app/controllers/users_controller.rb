@@ -6,11 +6,17 @@ class UsersController < ApplicationController
 
 	end
 
+	def show
+		@user = User.find(params[:id])
+		@secrets_liked = @user.secrets_liked.includes(:likes)
+
+	end
+
 	def create
 		user = User.create(user_params)
 		if user.valid?
 			session[:user_id] = user.id
-			redirect_to '/success'
+			redirect_to '/secrets'
 		else
 			flash[:errors] = user.errors.full_messages
 			redirect_to '/'

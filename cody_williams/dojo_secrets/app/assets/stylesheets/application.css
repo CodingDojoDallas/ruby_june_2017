@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+.inline_block{
+	display: inline-block;
+}
+.float_right{
+	float: right;
+}
+.error{
+	color: red;
+}
+.half_size{
+	width: 48%;
+}
+
+
+
+
+
+

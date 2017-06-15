@@ -1,0 +1,6 @@
+class Secret < ApplicationRecord
+  belongs_to :user
+  has_many :likes, dependent: :destroy
+  has_many :users_liked, through: :likes, source: :user
+  validates :secret, presence: true
+end
