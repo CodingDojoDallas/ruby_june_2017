@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <h1>New User</h1>
+
+     <form action='/users' method='post'>
+       <!--<%= form_authenticity_token %>-->
+       <input type="hidden" name="authenticity_token" value="u/wZoUKDdWtVm5TcFgEat0ULmbto7Cct52LxNICyIz/98aF1jKIWDJ57/oR09+EKwsWEDovMTsxt96o/202W4Q== ">
+          First Name: <input type='text' name='firstName'>
+          Last Name: <input type='text' name='lastName'>
+          Email: <input type='text' name='email'>
+          <input type='submit' value='Register'>
+      </form>
+
+  </body>
+</html>

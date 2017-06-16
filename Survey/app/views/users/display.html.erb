@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h2>Submitted Information: <%=  session[:zero] %></h2>
+
+    <h4>Name:           <%= session[:user]['name'] %></h4>
+    <h4>Location:           <%= session[:user]['location'] %></h4>
+    <h4>Language:           <%= session[:user]['language'] %></h4>
+    <h4>Comments:           <%= session[:user]['comment'] %></h4>
+
+    <% if flash['notice'] %>
+      <%= flash['notice'] %>
+    <% end %>
+
+    <a href="/">Back</a>
+
+  </body>
+</html>
