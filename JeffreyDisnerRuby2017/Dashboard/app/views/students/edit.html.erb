@@ -1,0 +1,13 @@
+
+<a href="/dojos/<%= @dojo.id %>/students">Back</a>
+
+<h4>Edit Student: <%= @student.first_name %> at <%= @dojo.branch %> Dojo</h4>
+
+<form action='/dojos/<%= @dojo.id %>/students/<%= @student.id %>' method='post'>
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      First Name: <input type='text' name='first_name'>
+      Last Name: <input type='text' name='last_name'>
+      Email: <input type='text' name='email'>
+     <input type='submit' value='Update'>
+ </form>

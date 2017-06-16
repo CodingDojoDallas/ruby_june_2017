@@ -1,0 +1,6 @@
+      invoke  active_record
+      remove    db/migrate/20170609184528_create_name#names.rb
+      remove    app/models/name#name.rb
+      invoke    test_unit
+      remove      test/models/name#name_test.rb
+      remove      test/fixtures/name#names.yml

@@ -1,0 +1,64 @@
+<h1>Ninja Gold</h1><%= image_tag("DS2.png") %>
+<h4>Gold: <%=  session[:gold] %></h4>
+<div class= "container">
+  <div class= "section1">
+    <h4>Gold:</h4>
+  </div>
+  <a href="/reset">Reset</a>
+  <div class= "section2">
+
+    <div class= "box">
+      <h5>Farm</h5><span>gold</span>
+      <p>10 - 20</p>
+      <form action="/farm" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold">
+      </form>
+    </div>
+
+    <div class= "box">
+      <h5>Cave</h5><span>gold</span>
+      <p>5 - 10</p>
+      <form action="/cave" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold">
+      </form>
+    </div>
+
+    <div class= "box">
+      <h5>House</h5>
+      <span>gold</span>
+      <p>2 - 5</p>
+      <form action="/house" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold">
+      </form>
+    </div>
+
+    <div class= "box">
+      <h5>Casino</h5><span>gold</span>
+      <p>50 - (-50)</p>
+      <form action="/casino" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Find Gold">
+      </form>
+    </div>
+
+  </div>
+  <h5>Activities</h5>
+  <div class="section3">
+
+    <% session[:messages].each do |messageObj|  %>
+    
+      <% if messageObj['color'] == 'green' %>
+        <div class = "green">
+            <p><%= messageObj['message'] %></p>
+        </div>
+      <% elsif messageObj['color'] == 'red' %>
+        <div class = "red">
+            <p><%= messageObj['message'] %></p>
+        </div>
+      <% else %>
+
+      <% end %>
+    <% end %>

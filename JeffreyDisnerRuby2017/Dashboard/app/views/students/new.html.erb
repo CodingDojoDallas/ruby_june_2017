@@ -1,0 +1,13 @@
+<h1>New Student in <%= @dojo.branch %> Dojo</h1>
+
+ <form action='/dojos/<%= @dojo.id %>/students' method='post'>
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      First Name: <input type='text' name='first_name'>
+      Last Name: <input type='text' name='last_name'>
+      Email: <input type='text' name='email'>
+      <input type='submit' value='Register'>
+  </form>
+
+  <% if flash['error'] %>
+    <%= flash['error'] %>
+  <% end %>
