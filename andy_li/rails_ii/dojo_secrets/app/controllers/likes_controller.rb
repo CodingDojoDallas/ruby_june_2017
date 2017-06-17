@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :user_authorized, only: [:create]
+  before_action :user_authorized, only: [:create, :destroy]
 
   def create
     Like.create(user: current_user, secret: Secret.find(params[:secret_id]))

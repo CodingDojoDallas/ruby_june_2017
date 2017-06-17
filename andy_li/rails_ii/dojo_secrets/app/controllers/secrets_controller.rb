@@ -1,5 +1,5 @@
 class SecretsController < ApplicationController
-  before_action :user_authorized, only: [:index, :create]
+  before_action :user_authorized, only: [:index, :create, :destroy]
 
   def index
     current_user = current_user()
