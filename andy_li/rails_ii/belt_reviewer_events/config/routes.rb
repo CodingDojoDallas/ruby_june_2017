@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # users routes
   root "users#new"
   post "/users" => "users#create"
-  get "/users/:user_id/edit" => "users#show"
+  get "/users/:user_id/edit" => "users#edit"
   put "/users/:user_id" => "users#update"
 
   # sessions routes
@@ -12,8 +12,15 @@ Rails.application.routes.draw do
   # events routes
   get "/events" => "events#index"
   post "/events" => "events#create"
+  get "/events/:event_id" => "events#show"
+  get "/events/:event_id/edit" => "events#edit"
+  put "/events/:event_id" => "events#update"
+  delete "/events/:event_id" => "events#destroy"
   post "/events/:event_id/join" => "events#join"
+  delete "/events/:event_id/cancel" => "events#cancel"
 
+  # comments routes
+  post "/events/:event_id/comments" => "comments#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

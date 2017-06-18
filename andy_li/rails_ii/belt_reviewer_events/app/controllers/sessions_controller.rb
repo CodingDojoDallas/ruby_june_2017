@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/events"
     else
-      flash[:errors] = ["Invalid login credentials"]
+      flash[:msgs] = ["Invalid login credentials"]
       redirect_to "/"
     end
 

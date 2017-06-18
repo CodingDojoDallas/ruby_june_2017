@@ -13,25 +13,25 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/events"
     else
-      flash[:errors] = user.errors.full_messages
+      flash[:msgs] = user.errors.full_messages
       redirect_to "/"
     end
   end
 
-  def show
+  def edit
     @current_user = current_user
     @states = State.all
-    # render "show.html.erb"
+    # render "edit.html.erb"
   end
 
   def update
-    user = User.find(params[:user_id])
+    user = User.update(params[:user_id], user_update_params.merge(state: State.find(user_update_params[:state])))
 
-    if user.update(user_update_params.merge(state: State.find(user_update_params[:state])))
-      flash[:errors] = ["#{user_update_params[:first_name]} was successfully updated..."]
+    if user.valid?
+      flash[:msgs] = ["#{user_update_params[:first_name]} was successfully updated..."]
       redirect_to "/events"
     else
-      flash[:errors] = user.errors.full_messages
+      flash[:msgs] = user.errors.full_messages
       redirect_to "/users/#{params[:user_id]}/edit"
     end
 

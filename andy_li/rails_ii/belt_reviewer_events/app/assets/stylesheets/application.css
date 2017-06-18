@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ .msgs {
+   color: red;
+ }
+
+ .half_width {
+   display: inline-block;
+   width: 49%;
+   vertical-align: top;
+ }

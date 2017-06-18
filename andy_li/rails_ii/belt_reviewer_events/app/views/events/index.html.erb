@@ -3,7 +3,7 @@
 <div class="container">
   <h3>Welcome, <%= @current_user.first_name %>!</h3>
 
-  <h4>Here are some events at your state:</h4>
+  <h4>Here are some events in your state:</h4>
   <table>
     <tr>
       <th>Name</th>
@@ -12,26 +12,34 @@
       <th>Host</th>
       <th>Action/Status</th>
     </tr>
-
+    <!-- in state events -->
+    <% @local_events.each do |event| %>
     <tr>
-      <% @local_events.each do |event| %>
-        <td><a href="/events/<%= event.id %>"><%= event.name %></a></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.user.first_name %></td>
-        <td>
-          <% if @current_user.id == event.user.id %>
-            <a href="#">Edit</a> | <a href="/events/<%= event.id %>">Delete</a>
-          <% end %>
-          <% if @current_user.id != event.user.id %>
+      <td><a href="/events/<%= event.id %>"><%= event.name %></a></td>
+      <td><%= event.date %></td>
+      <td><%= event.location %></td>
+      <td><%= event.user.first_name %></td>
+      <td>
+        <!-- current user is host of event -->
+        <% if @current_user.id == event.user.id %>
+          <a href="/events/<%= event.id %>/edit">Edit</a> | <a href="/events/<%= event.id %>" data-method="delete">Delete</a>
+        <% end %>
+        <!-- current user is not host of event -->
+        <% if @current_user.id != event.user.id %>
+          <!-- current user can attend/join event unless already joined -->
+          <% unless @events_attended_ids.include? event.id %>
             <form action="/events/<%= event.id %>/join" method="post">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <input type="submit" value="Join">
             </form>
+          <!-- current user joining event, can cancel join -->
+          <% else %>
+            Joining | <a href="/events/<%= event.id %>/cancel" data-method="delete">Cancel</a>
           <% end %>
-        </td>
-      <% end %>
+        <% end %>
+      </td>
     </tr>
+    <% end %>
   </table>
   <hr>
 
@@ -43,28 +51,37 @@
       <th>Location</th>
       <th>State</th>
       <th>Host</th>
-      <th>Action</th>
+      <th>Action/Status</th>
     </tr>
+    <!-- out of state events -->
+    <% @other_events.each do |event| %>
     <tr>
-      <% @other_events.each do |event| %>
-        <td><a href="/events/<%= event.id %>"><%= event.name %></a></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.state.name %></td>
-        <td><%= event.user.first_name %></td>
-        <td>
-          <% if @current_user.id == event.user.id %>
-            <a href="#">Edit</a> | <a href="/events/<%= event.id %>">Delete</a>
-          <% end %>
-          <% if @current_user.id != event.user.id %>
+      <td><a href="/events/<%= event.id %>"><%= event.name %></a></td>
+      <td><%= event.date %></td>
+      <td><%= event.location %></td>
+      <td><%= event.state.name %></td>
+      <td><%= event.user.first_name %></td>
+      <td>
+        <!-- current user is host of event -->
+        <% if @current_user.id == event.user.id %>
+          <a href="/events/<%= event.id %>/edit">Edit</a> | <a href="/events/<%= event.id %>" data-method="delete">Delete</a>
+        <% end %>
+        <!-- current user is not host of event -->
+        <% if @current_user.id != event.user.id %>
+          <!-- current user can attend/join event unless already joined -->
+          <% unless @events_attended_ids.include? event.id %>
             <form action="/events/<%= event.id %>/join" method="post">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <input type="submit" value="Join">
             </form>
+          <!-- current user joining event, can cancel join -->
+          <% else %>
+            Joining | <a href="/events/<%= event.id %>/cancel" data-method="delete">Cancel</a>
           <% end %>
-        </td>
-      <% end %>
+        <% end %>
+      </td>
     </tr>
+    <% end %>
   </table>
   <!-- create event -->
   <h3>Add Event</h3>

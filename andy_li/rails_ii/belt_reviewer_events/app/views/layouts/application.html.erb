@@ -14,8 +14,8 @@
     <%= yield %>
 
     <div class="msgs">
-      <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
+      <% if flash[:msgs] %>
+        <% flash[:msgs].each do |error| %>
           <p><%= error %></p>
         <% end %>
       <% end %>
