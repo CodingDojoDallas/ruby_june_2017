@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :user_authorized, only: [:edit]
   before_action :user_logged_in, only: [:new]
 
   def new
