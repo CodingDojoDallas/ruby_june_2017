@@ -1,0 +1,19 @@
+<div>
+	<p><%= @user.name %> </p>
+</div>
+<div>
+	<form action="/secrets" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<label>New Secret</label>
+		<textarea name="secret[content]"></textarea>
+		<input type="submit" value="create secret">
+	</form>
+</div>
+
+<div class="errors">
+	<% if flash[:secret_errors] %>
+		<% flash[:secret_errors].each do |error| %>
+			<p> <%= error %> </p>
+		<% end %>
+	<% end  %>
+</div>
