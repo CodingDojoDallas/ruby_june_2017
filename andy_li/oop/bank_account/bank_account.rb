@@ -1,5 +1,5 @@
 class BankAccount
-  attr_reader :acct_num, :chk_amt, :sav_amt, :ttl_amt
+  attr_reader :acct_num, :chk_amt, :sav_amt
   @@bank_accts = 0
 
   def initialize()
@@ -32,13 +32,12 @@ class BankAccount
   end
 
   def get_ttl_amt()
-    p "Total amount: #{@chk_amt + @sav_amt}"
-    return self
+    p "Total balance: #{@chk_amt + @sav_amt}"
+    # return self
   end
 
-  def get_num_accts()
-    p @@bank_accts
-    return self
+  def self.get_num_accts()
+    return @@bank_accts
   end
 
   def acct_info()
@@ -52,14 +51,14 @@ class BankAccount
 
 
   private
-  attr_reader :int_rate
+    attr_reader :int_rate
 
-  def gen_acct_num()
-    return rand(1..1000000)
-  end
+    def gen_acct_num()
+      return rand(1..1000000)
+    end
 
 end
 
-my_acct = BankAccount.new
-my_acct.deposit(100, 50).withdraw(30, 20).acct_info
-my_acct.get_num_accts
+# my_acct = BankAccount.new
+# my_acct.deposit(100, 50).withdraw(30, 20).acct_info
+# my_acct.get_num_accts
