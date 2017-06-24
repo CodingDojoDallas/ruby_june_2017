@@ -15,8 +15,8 @@
 
     <div class="msgs">
       <% if flash[:msgs] %>
-        <% flash[:msgs].each do |error| %>
-          <p><%= error %></p>
+        <% flash[:msgs].each do |msg| %>
+          <p><%= msg %></p>
         <% end %>
       <% end %>
     </div>

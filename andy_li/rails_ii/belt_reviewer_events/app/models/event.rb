@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :state
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :delete_all
   has_many :event_attendees
   has_many :attendees, through: :event_attendees, source: :user
 
