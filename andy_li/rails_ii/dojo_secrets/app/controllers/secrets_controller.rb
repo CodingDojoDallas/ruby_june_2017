@@ -1,11 +1,11 @@
 class SecretsController < ApplicationController
-  before_action :user_authorized, only: [:index, :create]
+  before_action :user_authorized, only: [:index, :create, :destroy]
 
   def index
     current_user = current_user()
     @secrets = Secret.all.includes(:user, :likes)
     @secrets_liked_ids = current_user.secrets_liked_ids
-    # render "secrets.html.erb"
+    # render "index.html.erb"
   end
 
   def create

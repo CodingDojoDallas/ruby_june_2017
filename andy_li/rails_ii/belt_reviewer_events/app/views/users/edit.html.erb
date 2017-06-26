@@ -1,0 +1,32 @@
+| <a href="/events">Events Dashboard</a>
+
+<div class="container">
+  <h3>Edit <%= @current_user.first_name %>'s Profile</h3>
+  <form action="/users/<%= @current_user.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="put">
+    <div class="">
+      <label>First Name: </label>
+      <input type="text" name="user[first_name]" value="<%= @current_user.first_name %>">
+    </div>
+    <div class="">
+      <label>Last Name: </label>
+      <input type="text" name="user[last_name]" value="<%= @current_user.last_name %>">
+    </div>
+    <div class="">
+      <label>E-mail: </label>
+      <input type="text" name="user[email]" value="<%= @current_user.email %>">
+    </div>
+    <div class="">
+      <label>Location: </label>
+      <input type="text" name="user[location]" value="<%= @current_user.location %>">
+      <select name="user[state]">
+        <% @states.each do |state| %>
+          <option <%= "selected" if state.id == @current_user.state.id %> value="<%= state.id %>"><%= state.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <input type="submit" value="Update User">
+  </form>
+
+</div>
