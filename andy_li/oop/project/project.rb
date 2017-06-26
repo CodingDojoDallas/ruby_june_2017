@@ -30,8 +30,8 @@ class Project
 
 end
 
-project1 = Project.new("Project 1", "Description 1", "John Doe")
-p project1.name # => "Project 1"
-project1.elevator_pitch  # => "Project 1, Description 1"
-project1.add_tasks("Deploy Hello World").add_tasks("Integrate Google Maps API")
-project1.print_tasks
+# project1 = Project.new("Project 1", "Description 1", "John Doe")
+# p project1.name # => "Project 1"
+# project1.elevator_pitch  # => "Project 1, Description 1"
+# project1.add_tasks("Deploy Hello World").add_tasks("Integrate Google Maps API")
+# project1.print_tasks
