@@ -1,3 +1,29 @@
-// Place all the styles related to the Users controller here.
+/*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+.background-image {
+  text-align: center;
+  margin: auto;
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  position: relative;
+  padding-top: 10%;
+  padding-bottom: 50%; }
+  .background-image h1 {
+    font-size: 55px;
+    color: #ffeb3b; }
+    .background-image img {
+    	width: 11%;
+    }
+#girl img {
+	width: 50%;
+	margin-top: 25%;
+}
+
+.btn {
+	width: 10%;
+}
+
