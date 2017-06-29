@@ -1,19 +1,65 @@
-<div>
-	<p><%= @user.name %> </p>
-</div>
-<div>
-	<form action="/secrets" method="post">
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		<label>New Secret</label>
-		<textarea name="secret[content]"></textarea>
-		<input type="submit" value="create secret">
-	</form>
-</div>
+<div class="container-fluid hero secrets">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/secrets"><span class="glyphicon glyphicon-pushpin"></span>Secret Board</a></li>
+        <li><a href="sessions/<%= session[:user_id]%>" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+    <div class="secrets">
+      <h1><%= @user.name %></h1>
+    </div>
 
-<div class="errors">
-	<% if flash[:secret_errors] %>
-		<% flash[:secret_errors].each do |error| %>
-			<p> <%= error %> </p>
-		<% end %>
-	<% end  %>
+    <div class="row">
+    	<div class="col-md-4">
+    		<h3>Your Secrets</h3>
+    		<% @user.secrets.each do |secret| %>
+            <div class="well col-md-12">
+	            <div class="well-header">
+	              <h4>Posted on: <%=secret.created_at.strftime("%B %d, %Y, %l:%M%P ")%></h4>
+	              <p class="text-left"> <%=secret.content%> </p>
+	              <p class="text-right"><a href="/secrets/<%= secret.id %>/destroy" data-method="delete">Delete Secret</a></p>
+	            </div>
+            </div>
+            <% end %>
+    	</div>
+    	<div class="col-md-4">
+    		<h3>Secrets you've liked</h3>
+    		<% @user.likes.each do |secret| %>
+            <div class="well col-md-12">
+	            <div class="well-header">
+	              <h4>Posted on: <%=secret.created_at.strftime("%B %d, %Y, %l:%M%P ")%></h4>
+	              <p class="text-left"> <%=secret.secret.content%> </p>
+	              <a class="like" href="/likes/<%= secret.id %>/destroy" data-method="delete">
+                    <button type="button" class="btn btn-default btn-md pull-left">
+                      <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Unlike
+                    </button>
+                  </a>
+	            </div>
+            </div>
+            <% end %>
+    	</div>
+    	<div class="col-md-4">
+    		<h3>Add a Secret</h3>
+			<div>
+				<form action="/secrets" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<label>New Secret</label>
+					<textarea name="secret[content]"></textarea>
+					<input type="submit" value="create secret">
+				</form>
+			</div>
+    	</div>
+    </div>
+
+
+
+	<div class="errors">
+		<% if flash[:secret_errors] %>
+			<% flash[:secret_errors].each do |error| %>
+				<p> <%= error %> </p>
+			<% end %>
+		<% end  %>
+	</div>
 </div>
