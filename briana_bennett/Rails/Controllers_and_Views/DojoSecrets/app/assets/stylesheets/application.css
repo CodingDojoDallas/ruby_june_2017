@@ -12,3 +12,7 @@
  
  *= require_self
  */
+
+html {
+	background-size: cover;
+}

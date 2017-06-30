@@ -61,8 +61,6 @@ nav li a {
 .secrets {
   text-align: center;
   margin: auto;
-  background-color: #A9A9A9;
-  height: 100%;
 } .secrets h1 {
 	font-size: 55px;
 	color: #ffeb3b;
@@ -71,4 +69,23 @@ nav li a {
 	margin-left: 25%;
 } .secrets h4 {
 	text-align: left;
+}
+
+/*show page*/
+
+.show_unlike {
+	width: 20%;
+}
+
+h3.show {
+	margin-left: 0%;
+}
+
+.add_secret textarea {
+	width: 100%;
+}
+
+body {
+	background-color: #A9A9A9;
+	height: 100%;
 }

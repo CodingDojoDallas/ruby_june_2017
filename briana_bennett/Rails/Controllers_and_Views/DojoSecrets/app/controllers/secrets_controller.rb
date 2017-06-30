@@ -10,7 +10,7 @@ class SecretsController < ApplicationController
   def create
   	secret = Secret.create(secret_params.merge(user: current_user))
   	if secret.valid?
-  		redirect_to "/secrets"
+  		redirect_to :back
   	else
   		flash[:secret_errors] = secret.errors.full_messages
   		redirect_to "/users/#{session[:user_id]}"
@@ -19,7 +19,7 @@ class SecretsController < ApplicationController
 
   def destroy
   	secret = Secret.find(params[:secret_id]).destroy
-  	redirect_to '/secrets'
+  	redirect_to :back
   end
 
   private

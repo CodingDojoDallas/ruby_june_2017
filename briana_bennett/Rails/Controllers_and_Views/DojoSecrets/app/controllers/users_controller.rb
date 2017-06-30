@@ -24,9 +24,6 @@ class UsersController < ApplicationController
   	end
   end
 
-  def destroy
-  end
-
   private
 
   def session_does_not_equal_params
