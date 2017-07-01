@@ -32,7 +32,7 @@
 	            <div class="well-header">
 	              <h4>Posted on: <%=secret.created_at.strftime("%B %d, %Y, %l:%M%P ")%></h4>
 	              <p class="text-left"> <%=secret.secret.content%> </p>
-	              <a class="like" href="/likes/<%= secret.like %>/destroy" data-method="delete">
+	              <a class="like" href="/likes/<%= secret.secret.id %>/destroy" data-method="delete">
                     <button type="button" class="show_unlike btn btn-default btn-md pull-left">
                       <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Unlike
                     </button>
